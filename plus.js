@@ -56,8 +56,8 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
 
           function csv_string_to_table(csv_string, element_to_insert_table) {
             var rows = csv_string.trim().split(/\r?\n|\r/);
-            var comma_regex = /(,)(?=(?:[^"]*"[^"]*")*[^"]*$)/g; // Split by commas not inside quotes
-            //var comma_regex = /(?<=,)(?=(?:[^"]*"[^"]*")*[^"]*$)/g;
+            //var comma_regex = /(,)(?=(?:[^"]*"[^"]*")*[^"]*$)/g; // Split by commas not inside quotes
+            var comma_regex = /,(?=(?:[^"]*"[^"]*")*[^"]*$)/g; // Split by commas not inside quotes
 
             var tableStyle =
               'style="border-collapse:collapse;width:100%;table-layout:auto;"';
