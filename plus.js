@@ -32,6 +32,7 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
               tableContainer.innerHTML = "";
 
               var new_div = document.createElement("div");
+              var table_preview = document.createElement("div");
 
               new_div.className = "csv-table";
               new_div.style.maxHeight = "500px";
@@ -40,7 +41,12 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
               new_div.style.boxShadow = "0px 4px 8px 0px rgba(0,0,0,0.2)";
               new_div.style.display = "block";
 
+              table_preview.textContent = 'Table Preview';
+              table_preview.style.fontWeight = 'bold';
+              table_preview.style.fontSize = '14px';
+
               const table_html = csv_string_to_table(e.target.result, new_div);
+              tableContainer.appendChild(table_preview);
               tableContainer.appendChild(new_div);
             };
             reader.readAsText(fileList[0]);
@@ -100,3 +106,4 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
   // Start observing the target node for configured mutations
   observer.observe(targetNode, observerConfig);
 }
+
