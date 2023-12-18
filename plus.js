@@ -74,27 +74,19 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
               var columns = row.split(comma_regex); // Split by regex
               columns.forEach(function (column, column_index) {
                 var clean_column = column.replaceAll('"', ""); // Removes extra quotes
-                //console.log(clean_column + (clean_column == ','));
-                if (clean_column != ','){
+                if (clean_column != ",") {
                   table_columns +=
                     row_index == 0
                       ? "<th " + thStyle + ">" + clean_column + "</th>"
                       : "<td " + tdStyle + ">" + clean_column + "</td>";
                 }
               });
-
-              //console.log(table_columns);
-
               if (row_index == 0) {
                 table_header += "<tr>" + table_columns + "</tr>";
               } else {
                 table_rows += "<tr>" + table_columns + "</tr>";
               }
             });
-
-            //console.log(table_header);
-            //console.log(table_rows);
-
 
             table += "<table " + tableStyle + ">";
             table += "<thead>";
