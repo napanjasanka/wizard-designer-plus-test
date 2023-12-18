@@ -41,9 +41,9 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
               new_div.style.boxShadow = "0px 4px 8px 0px rgba(0,0,0,0.2)";
               new_div.style.display = "block";
 
-              table_preview.textContent = 'Table Preview';
-              table_preview.style.fontWeight = 'bold';
-              table_preview.style.fontSize = '14px';
+              table_preview.textContent = "Table Preview";
+              table_preview.style.fontWeight = "bold";
+              table_preview.style.fontSize = "14px";
               table_preview.style.padding = "12px 0px";
 
               const table_html = csv_string_to_table(e.target.result, new_div);
@@ -74,17 +74,16 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
               var columns = row.split(comma_regex); // Split by regex
               columns.forEach(function (column, column_index) {
                 var clean_column = column.replaceAll('"', ""); // Removes extra quotes
-                table_columns +=
-                  row_index == 0
-                    ? "<th " + thStyle + ">" + clean_column + "</th>"
-                    : "<td " + tdStyle + ">" + clean_column + "</td>";
+                if (clean_column != ",")
+                  table_columns +=
+                    row_index == 0
+                      ? "<th " + thStyle + ">" + clean_column + "</th>"
+                      : "<td " + tdStyle + ">" + clean_column + "</td>";
               });
 
               if (row_index == 0) {
-                if(table_header != "," && table_columns!=",")
                 table_header += "<tr>" + table_columns + "</tr>";
               } else {
-                if(table_rows != "," && table_columns!=",")
                 table_rows += "<tr>" + table_columns + "</tr>";
               }
             });
@@ -109,4 +108,3 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
   // Start observing the target node for configured mutations
   observer.observe(targetNode, observerConfig);
 }
-
