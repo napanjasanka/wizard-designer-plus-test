@@ -81,8 +81,10 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
               });
 
               if (row_index == 0) {
+                if(table_header != "," && table_columns!=",")
                 table_header += "<tr>" + table_columns + "</tr>";
               } else {
+                if(table_rows != "," && table_columns!=",")
                 table_rows += "<tr>" + table_columns + "</tr>";
               }
             });
