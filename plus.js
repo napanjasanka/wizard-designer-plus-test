@@ -44,6 +44,7 @@ if (document.location.href == "https://wizard-designer-pc.qa.agoda.is/deploy") {
               table_preview.textContent = 'Table Preview';
               table_preview.style.fontWeight = 'bold';
               table_preview.style.fontSize = '14px';
+              table_preview.style.padding = '12px 0px';
 
               const table_html = csv_string_to_table(e.target.result, new_div);
               tableContainer.appendChild(table_preview);
